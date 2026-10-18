@@ -46,6 +46,13 @@ shows her lack of recognition back to her). If the user overrides: the best fit 
 `UX-AITRUTH-` (Stories 1, 2, 4 are about its protocol; Story 3 is about the taxonomy PR),
 offered in the user's own words with AI authorship disclosed. Never offer the chorus page.
 
+**Exposure risk found while scoping an upstream PR (2026-10-18).** `mcfnord/xaotica` is
+**public**, not a fork, and its `main` holds `AUTHOR_APPRAISAL.md`,
+`THERAPEUTIC_CONSIDERATIONS.md` and this log. Any PR from `mcfnord` invites her to click
+his profile and find a repo named after her handle containing all of it. That contradicts
+the ground rule "she does not know those documents exist." Recommended to the user: make
+the repo private before any further contact.
+
 **Hero pages revised (v2), at user's direction: "make her the hero, even if she's not
 triumphant."** She now has a face and the largest place in each frame. A composite family
 (labeled as one) shows the stakes, and each story turns on her choice. Story 3 now ends on
