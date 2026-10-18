@@ -46,6 +46,13 @@ shows her lack of recognition back to her). If the user overrides: the best fit 
 `UX-AITRUTH-` (Stories 1, 2, 4 are about its protocol; Story 3 is about the taxonomy PR),
 offered in the user's own words with AI authorship disclosed. Never offer the chorus page.
 
+**Self-critique of the hero drafts (user asked if they show her as the hero): partly.**
+Story 1 works. Stories 2–4 make her a bystander to diagrams; Story 3 makes the other person
+in the PR the actor and her the one who gets noticed. Constraint for any revision: a hero
+arc can't invent a win (no uptake is documented), so the heroism has to come from her
+choices: testing on her own time, giving the work away, writing down in advance how her
+own accusation could fail.
+
 **Drafts:** `xaotica_hero_pages.html` holds four pages (The Deadline, Four Hypotheses, The Taxonomy, Infrastructure), named hero, drawn only from documented work. Dialogue is dramatized; the Story 1 AI reply is a paraphrase.
 
 **Environment:** the eight subdirectory clones are empty in this container. Only the
