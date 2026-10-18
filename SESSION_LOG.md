@@ -36,6 +36,16 @@ platform-AI-as-infrastructure argument). Not under her name: the grand claims sh
 true, her hardship/health/family details, her mental state, or any story where she
 discovers she was flattered. That last one stays fiction under a made-up name.
 
+**Follow-up: where to offer the hero pages by PR. Recommended: nowhere for now.**
+User asked which of her repos could take the pages. Three reasons against: (1) the standing
+rule above says no further contact unless she replies to the existing PRs, and this would be
+new contact; (2) THERAPEUTIC_CONSIDERATIONS point 2: AI praise is not recognition, and the
+pages are Claude-drawn praise; (3) the drafts would need edits first (the footnote cites
+the analysis files she doesn't know exist; Story 3's "0 stars, nothing for months" panel
+shows her lack of recognition back to her). If the user overrides: the best fit is
+`UX-AITRUTH-` (Stories 1, 2, 4 are about its protocol; Story 3 is about the taxonomy PR),
+offered in the user's own words with AI authorship disclosed. Never offer the chorus page.
+
 **Drafts:** `xaotica_hero_pages.html` holds four pages (The Deadline, Four Hypotheses, The Taxonomy, Infrastructure), named hero, drawn only from documented work. Dialogue is dramatized; the Story 1 AI reply is a paraphrase.
 
 **Environment:** the eight subdirectory clones are empty in this container. Only the
