@@ -46,6 +46,12 @@ shows her lack of recognition back to her). If the user overrides: the best fit 
 `UX-AITRUTH-` (Stories 1, 2, 4 are about its protocol; Story 3 is about the taxonomy PR),
 offered in the user's own words with AI authorship disclosed. Never offer the chorus page.
 
+**Hero pages revised (v2), at user's direction: "make her the hero, even if she's not
+triumphant."** She now has a face and the largest place in each frame. A composite family
+(labeled as one) shows the stakes, and each story turns on her choice. Story 3 now ends on
+her giving the taxonomy away, not on someone else's PR, and the "0 stars" panel is gone.
+The footnote no longer cites the analysis files. Still no invented wins.
+
 **Self-critique of the hero drafts (user asked if they show her as the hero): partly.**
 Story 1 works. Stories 2–4 make her a bystander to diagrams; Story 3 makes the other person
 in the PR the actor and her the one who gets noticed. Constraint for any revision: a hero
