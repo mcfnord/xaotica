@@ -29,6 +29,13 @@ private person, and a heroic page that presents the claims as true would be one 
 document in the escalation the appraisal describes. Offered instead: a hero page built on
 her real contribution (the IC3/Grok protocol catching AI misleading SNAP recipients).
 
+**Follow-up (same day): where the real name is acceptable.** User asked which storylines
+would carry the name "xaotica". Answer: only stories built on her real, publicly posted
+research (the SNAP-deadline catch, the four-hypothesis protocol, the IC3 taxonomy, the
+platform-AI-as-infrastructure argument). Not under her name: the grand claims shown as
+true, her hardship/health/family details, her mental state, or any story where she
+discovers she was flattered. That last one stays fiction under a made-up name.
+
 **Environment:** the eight subdirectory clones are empty in this container. Only the
 top-level .md analysis files are present.
 
