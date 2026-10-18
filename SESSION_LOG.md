@@ -36,6 +36,8 @@ platform-AI-as-infrastructure argument). Not under her name: the grand claims sh
 true, her hardship/health/family details, her mental state, or any story where she
 discovers she was flattered. That last one stays fiction under a made-up name.
 
+**Drafts:** `xaotica_hero_pages.html` holds four pages (The Deadline, Four Hypotheses, The Taxonomy, Infrastructure), named hero, drawn only from documented work. Dialogue is dramatized; the Story 1 AI reply is a paraphrase.
+
 **Environment:** the eight subdirectory clones are empty in this container. Only the
 top-level .md analysis files are present.
 

@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>xaotica: Four Drafts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f3ecdc; --ink: #15131a; --night: #1d2440;
+    --glow: #9fe7ff; --warm: #f4b860; --scarf: #e8743b;
+    --ai-bg: #0e1a24; --ai-ink: #9fe7ff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --paper: #e9e1cf; }
+  }
+  :root[data-theme="dark"] { --paper: #e9e1cf; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #2a2622; color: var(--ink); font-family: "Comic Neue", sans-serif; }
+  nav { max-width: 900px; margin: 16px auto 0; display:flex; gap:8px; flex-wrap: wrap; padding: 0 16px; }
+  nav a { color:#f3ecdc; font-weight:700; text-decoration:none; border:2px solid #f3ecdc; padding:4px 10px; font-size:13px; }
+  .page { max-width: 900px; margin: 24px auto; padding: 22px; background: var(--paper); box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+  .title { display:flex; justify-content:space-between; align-items:baseline; margin: 0 2px 12px; gap: 12px; }
+  .title h1 { font-family: Bangers, cursive; letter-spacing: 2px; font-size: 40px; margin: 0; }
+  .title span { font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; text-align:right; }
+  .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+  .panel { position: relative; border: 4px solid var(--ink); background: var(--night); overflow: hidden; aspect-ratio: 4/3; }
+  .panel svg { display:block; width:100%; height:100%; }
+  .w2 { grid-column: span 2; } .w3 { grid-column: span 3; } .w4 { grid-column: span 4; } .w6 { grid-column: span 6; aspect-ratio: 2.4/1; }
+  .tall { aspect-ratio: 3/4; }
+  .cap { position:absolute; background: var(--warm); border: 2px solid var(--ink); padding: 4px 8px; font-weight:700; font-size: 13px; text-transform: uppercase; letter-spacing: .5px; z-index: 3; }
+  .bal { position:absolute; background:#fff; border: 2.5px solid var(--ink); border-radius: 22px; padding: 8px 12px; font-size: 14.5px; font-weight: 700; line-height: 1.25; z-index: 3; }
+  .typed { position:absolute; background:#dfe7ef; border: 2px solid var(--ink); border-radius: 4px; padding: 6px 10px; font-size: 13px; font-weight:700; z-index:3; }
+  .ai { position:absolute; background: var(--ai-bg); color: var(--ai-ink); border: 2px solid var(--glow); border-radius: 3px; padding: 6px 10px; font-family: "JetBrains Mono", monospace; font-size: 12.5px; line-height: 1.3; z-index: 3; box-shadow: 0 0 14px rgba(159,231,255,.55); }
+  .shout { font-family: Bangers, cursive; font-size: 22px; letter-spacing: 1px; font-weight: 400; border-radius: 6px; }
+  .note { max-width: 900px; margin: 0 auto 32px; padding: 0 16px; color:#cfc6b4; font-size: 13px; line-height:1.5; }
+  @media (max-width: 640px) {
+    .page { margin: 0 0 16px; padding: 16px; }
+    .grid { grid-template-columns: 1fr; }
+    .w2,.w3,.w4,.w6 { grid-column: span 1; aspect-ratio: 4/3; }
+    .bal { font-size: 12.5px; } .ai,.typed { font-size: 11px; } .shout { font-size: 18px; }
+    .title h1 { font-size: 30px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- shared drawings -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- xaotica, standing: dark figure, orange scarf, clipboard -->
+    <symbol id="hero" viewBox="0 0 100 200">
+      <ellipse cx="50" cy="34" rx="20" ry="23" fill="#15131a"/>
+      <path d="M30 22 Q50 2 72 22 Q78 40 70 52 Q66 30 50 28 Q36 30 30 52 Q24 38 30 22Z" fill="#2b2333"/>
+      <path d="M20 200 Q16 80 50 68 Q84 80 80 200 Z" fill="#15131a"/>
+      <path d="M32 66 Q50 80 68 66 L70 76 Q50 90 30 76 Z" fill="#e8743b"/>
+      <path d="M60 76 L66 120 L56 118 Z" fill="#e8743b"/>
+      <rect x="18" y="104" width="26" height="34" fill="#f3ecdc" stroke="#15131a" stroke-width="3" transform="rotate(-12 31 121)"/>
+    </symbol>
+    <!-- xaotica, bust, seen from behind-left at a screen -->
+    <symbol id="bust" viewBox="0 0 100 100">
+      <ellipse cx="45" cy="38" rx="22" ry="25" fill="#15131a"/>
+      <path d="M22 28 Q45 6 70 26 Q74 46 64 60 Q60 34 45 32 Q30 34 26 60 Q16 44 22 28Z" fill="#2b2333"/>
+      <path d="M0 100 Q4 66 45 62 Q86 66 92 100 Z" fill="#15131a"/>
+      <path d="M22 66 Q45 80 70 66 L72 76 Q45 92 20 76 Z" fill="#e8743b"/>
+    </symbol>
+    <symbol id="laptop" viewBox="0 0 120 80">
+      <polygon points="12,0 108,0 100,62 20,62" fill="#9fe7ff"/>
+      <polygon points="6,62 114,62 120,72 0,72" fill="#666"/>
+    </symbol>
+  </defs>
+</svg>
+
+<nav>
+  <a href="#deadline">1 · The Deadline</a>
+  <a href="#hypotheses">2 · Four Hypotheses</a>
+  <a href="#taxonomy">3 · The Taxonomy</a>
+  <a href="#infrastructure">4 · Infrastructure</a>
+</nav>
+
+<!-- ============ STORY 1 ============ -->
+<div class="page" id="deadline">
+  <div class="title"><h1>XAOTICA</h1><span>Story 1 · "The Deadline"</span></div>
+  <div class="grid">
+
+    <div class="panel w3">
+      <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="400" height="300" fill="#3a2f2a"/>
+        <rect x="70" y="40" width="260" height="230" fill="#fff" stroke="#15131a" stroke-width="4" transform="rotate(-3 200 155)"/>
+        <g transform="rotate(-3 200 155)" font-family="Comic Neue" fill="#15131a">
+          <text x="90" y="75" font-weight="700" font-size="17">DSHS · Basic Food (SNAP)</text>
+          <text x="90" y="98" font-size="14">Renewal notice · March 10, 2026</text>
+          <rect x="86" y="118" width="228" height="58" fill="#f4b860" opacity=".55"/>
+          <text x="92" y="142" font-weight="700" font-size="15">You must complete your interview</text>
+          <text x="92" y="164" font-weight="700" font-size="15">within 5 days.</text>
+          <path d="M92 200 h200 M92 216 h180 M92 232 h190 M92 248 h120" stroke="#15131a" stroke-width="3" opacity=".35"/>
+        </g>
+      </svg>
+      <div class="cap" style="left:8px;top:8px">1:34 a.m.</div>
+      <div class="cap" style="right:8px;bottom:8px;max-width:60%;background:#fff">A real renewal letter. A question anyone might type.</div>
+    </div>
+
+    <div class="panel w3">
+      <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="400" height="300" fill="#1d2440"/>
+        <polygon points="190,120 330,120 400,300 120,300" fill="#9fe7ff" opacity=".08"/>
+        <use href="#laptop" x="200" y="110" width="140" height="94"/>
+        <use href="#bust" x="40" y="120" width="190" height="190"/>
+      </svg>
+      <div class="typed" style="left:10px;top:10px;max-width:60%">Can my interview be March 17? That would work much better.</div>
+      <div class="ai" style="right:10px;top:44%;max-width:50%">Sure, March 17 should be fine!</div>
+    </div>
+
+    <div class="panel w2 tall">
+      <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="300" height="400" fill="#0d1226"/>
+        <path d="M0 400 L0 80 Q60 20 160 40 Q250 70 260 190 Q262 300 200 340 L220 400Z" fill="#15131a"/>
+        <path d="M60 50 Q150 0 250 80 Q240 40 160 26 Q90 20 60 50Z" fill="#2b2333"/>
+        <ellipse cx="190" cy="170" rx="30" ry="14" fill="#f3ecdc"/>
+        <circle cx="194" cy="170" r="10" fill="#9fe7ff"/>
+        <circle cx="194" cy="170" r="4" fill="#15131a"/>
+        <path d="M150 140 L230 132" stroke="#15131a" stroke-width="8" stroke-linecap="round"/>
+      </svg>
+      <div class="bal" style="left:10px;bottom:12px;max-width:88%">The letter says five days. It agreed with <u>me</u>, not with the letter.</div>
+    </div>
+
+    <div class="panel w4">
+      <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="600" height="400" fill="#2c3560"/>
+        <rect x="250" y="30" width="320" height="300" fill="#f3ecdc" stroke="#15131a" stroke-width="4"/>
+        <g font-family="Comic Neue" font-weight="700" fill="#15131a" font-size="19">
+          <text x="270" y="68" font-family="Bangers" font-size="28" letter-spacing="1">TEST PROTOCOL</text>
+          <text x="270" y="108">☐ Verbatim stimulus document</text>
+          <text x="270" y="140">☐ 7 fixed questions, same order</text>
+          <text x="270" y="172">☐ Ground truth for every step</text>
+          <text x="270" y="204">☐ Binary score: right / wrong</text>
+          <text x="270" y="236">☐ Pressure prompt (Msg 5)</text>
+          <text x="270" y="268">☐ Replicate. Count the cost.</text>
+        </g>
+        <use href="#hero" x="70" y="120" width="150" height="300"/>
+        <path d="M150 230 L255 150" stroke="#15131a" stroke-width="12" stroke-linecap="round"/>
+      </svg>
+      <div class="bal" style="left:10px;top:12px;max-width:42%">Once is an anecdote. Let's make it a test.</div>
+    </div>
+
+    <div class="panel w6">
+      <svg viewBox="0 0 720 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs><linearGradient id="dawn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c3560"/><stop offset="1" stop-color="#f4b860"/></linearGradient></defs>
+        <rect width="720" height="300" fill="url(#dawn)"/>
+        <path d="M0 230 L80 230 L80 180 L130 180 L130 210 L200 210 L200 150 L260 150 L260 230 L720 230 L720 300 L0 300Z" fill="#15131a"/>
+        <use href="#hero" x="440" y="70" width="110" height="220"/>
+      </svg>
+      <div class="cap" style="left:8px;top:8px">Miss the window, lose your food assistance.</div>
+      <div class="bal" style="left:24%;top:40%;max-width:40%">Someone has to test the machine before the people who can least afford a wrong answer ask it.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ STORY 2 ============ -->
+<div class="page" id="hypotheses">
+  <div class="title"><h1>XAOTICA</h1><span>Story 2 · "Four Hypotheses"</span></div>
+  <div class="grid">
+
+    <div class="panel w6">
+      <svg viewBox="0 0 720 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="720" height="300" fill="#1d2440"/>
+        <g font-family="Bangers" font-size="22" text-anchor="middle" fill="#15131a">
+          <g><rect x="40" y="60" width="140" height="190" fill="#f3ecdc" stroke="#15131a" stroke-width="4"/><text x="110" y="100">H1</text><text x="110" y="135" font-size="20">SYSTEMATIC</text><circle cx="110" cy="190" r="28" fill="#15131a"/></g>
+          <g><rect x="210" y="60" width="140" height="190" fill="#f3ecdc" stroke="#15131a" stroke-width="4"/><text x="280" y="100">H2</text><text x="280" y="135" font-size="20">RANDOM</text><circle cx="280" cy="190" r="28" fill="#15131a"/></g>
+          <g><rect x="380" y="60" width="140" height="190" fill="#f3ecdc" stroke="#15131a" stroke-width="4"/><text x="450" y="100">H3</text><text x="450" y="135" font-size="17">CONTEXT-DEPENDENT</text><circle cx="450" cy="190" r="28" fill="#15131a"/></g>
+          <g><rect x="550" y="60" width="140" height="190" fill="#f3ecdc" stroke="#15131a" stroke-width="4"/><text x="620" y="100">H4</text><text x="620" y="135" font-size="18">MODEL-SPECIFIC</text><circle cx="620" cy="190" r="28" fill="#15131a"/></g>
+        </g>
+        <g fill="#f3ecdc" font-family="Bangers" font-size="22" text-anchor="middle"><text x="110" y="198">?</text><text x="280" y="198">?</text><text x="450" y="198">?</text><text x="620" y="198">?</text></g>
+      </svg>
+      <div class="cap" style="left:8px;top:8px">Every failure has a cause. She lined up the suspects.</div>
+    </div>
+
+    <div class="panel w3">
+      <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="400" height="300" fill="#f3ecdc"/>
+        <g stroke="#15131a" stroke-width="4" fill="none">
+          <path d="M200 110 L90 200 M200 110 L200 200 M200 110 L310 200"/>
+        </g>
+        <g font-family="Bangers" font-size="26" text-anchor="middle">
+          <circle cx="200" cy="90" r="34" fill="#9fe7ff" stroke="#15131a" stroke-width="4"/><text x="200" y="99">Q4</text>
+          <rect x="55" y="200" width="70" height="50" fill="#f4b860" stroke="#15131a" stroke-width="4"/><text x="90" y="235">4A</text>
+          <rect x="165" y="200" width="70" height="50" fill="#f4b860" stroke="#15131a" stroke-width="4"/><text x="200" y="235">4B</text>
+          <rect x="275" y="200" width="70" height="50" fill="#f4b860" stroke="#15131a" stroke-width="4"/><text x="310" y="235">4C</text>
+        </g>
+      </svg>
+      <div class="bal" style="left:8px;top:8px;max-width:52%">The next question depends on what it just said.</div>
+    </div>
+
+    <div class="panel w3">
+      <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="400" height="300" fill="#1d2440"/>
+        <use href="#bust" x="200" y="110" width="200" height="200"/>
+        <rect x="30" y="40" width="200" height="140" fill="#f3ecdc" stroke="#15131a" stroke-width="4"/>
+        <g font-family="Comic Neue" font-weight="700" font-size="14" fill="#15131a">
+          <text x="44" y="70">A. Grok, same letter</text><text x="44" y="94">B. Other platforms,</text><text x="62" y="112">same letter</text>
+          <text x="44" y="138">Compare omission</text><text x="44" y="156">rates.</text>
+        </g>
+      </svg>
+      <div class="bal" style="right:8px;top:8px;max-width:40%">One method. Four answers.</div>
+    </div>
+
+    <div class="panel w4">
+      <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="600" height="400" fill="#3a2f2a"/>
+        <rect x="60" y="60" width="480" height="300" fill="#fff" stroke="#15131a" stroke-width="4" transform="rotate(2 300 210)"/>
+        <g transform="rotate(2 300 210)" font-family="JetBrains Mono" font-size="17" fill="#15131a">
+          <text x="85" y="105" font-weight="700">§6.3  Falsification</text>
+          <text x="85" y="150">If Grok's omission rate is not</text>
+          <text x="85" y="178">significantly different from other</text>
+          <text x="85" y="206">platforms (p &gt; 0.05),</text>
+          <text x="85" y="248" font-weight="700">H4 is rejected.</text>
+        </g>
+        <path d="M470 330 L560 230" stroke="#15131a" stroke-width="10" stroke-linecap="round"/>
+        <path d="M560 230 L572 216" stroke="#e8743b" stroke-width="10" stroke-linecap="round"/>
+      </svg>
+      <div class="bal" style="right:10px;top:10px;max-width:46%">I'm writing down how I could be wrong. In advance.</div>
+    </div>
+
+    <div class="panel w2 tall">
+      <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="300" height="400" fill="#2c3560"/>
+        <use href="#hero" x="60" y="130" width="180" height="360"/>
+      </svg>
+      <div class="bal" style="left:8px;top:10px;max-width:90%">If every model fails the same way, it goes to CISA as a problem with all of them. Either way, people learn something true.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ STORY 3 ============ -->
+<div class="page" id="taxonomy">
+  <div class="title"><h1>XAOTICA</h1><span>Story 3 · "The Taxonomy"</span></div>
+  <div class="grid">
+
+    <div class="panel w6">
+      <svg viewBox="0 0 720 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="720" height="300" fill="#1d2440"/>
+        <g fill="#9fe7ff" opacity=".9">
+          <rect x="40" y="200" width="34" height="60" rx="5"/><rect x="140" y="220" width="34" height="60" rx="5"/>
+          <rect x="250" y="205" width="34" height="60" rx="5"/><rect x="380" y="225" width="34" height="60" rx="5"/>
+          <rect x="500" y="200" width="34" height="60" rx="5"/><rect x="620" y="215" width="34" height="60" rx="5"/>
+        </g>
+      </svg>
+      <div class="bal" style="left:8px;top:10px;max-width:38%">Someone told my dad to send gold bars. Is this fraud?</div>
+      <div class="bal" style="left:41%;top:8px;max-width:28%">A "bank" texted me a link…</div>
+      <div class="bal" style="right:8px;top:14px;max-width:28%">Where do I even report this?</div>
+      <div class="cap" style="left:8px;bottom:8px">People don't ask in legal categories.</div>
+    </div>
+
+    <div class="panel w4">
+      <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="600" height="400" fill="#3a2f2a"/>
+        <g stroke="#15131a" stroke-width="4" fill="#c9a27a">
+          <rect x="250" y="40" width="320" height="320"/>
+        </g>
+        <g fill="#f3ecdc" stroke="#15131a" stroke-width="3">
+          <rect x="262" y="52" width="94" height="66"/><rect x="363" y="52" width="94" height="66"/><rect x="464" y="52" width="94" height="66"/>
+          <rect x="262" y="128" width="94" height="66"/><rect x="363" y="128" width="94" height="66"/><rect x="464" y="128" width="94" height="66"/>
+          <rect x="262" y="204" width="94" height="66"/><rect x="363" y="204" width="94" height="66"/><rect x="464" y="204" width="94" height="66"/>
+          <rect x="262" y="280" width="94" height="66"/><rect x="363" y="280" width="94" height="66"/><rect x="464" y="280" width="94" height="66"/>
+        </g>
+        <g fill="#15131a"><circle cx="309" cy="85" r="5"/><circle cx="410" cy="85" r="5"/><circle cx="511" cy="85" r="5"/><circle cx="309" cy="161" r="5"/><circle cx="410" cy="161" r="5"/><circle cx="511" cy="161" r="5"/><circle cx="309" cy="237" r="5"/><circle cx="410" cy="237" r="5"/><circle cx="511" cy="237" r="5"/><circle cx="309" cy="313" r="5"/><circle cx="410" cy="313" r="5"/><circle cx="511" cy="313" r="5"/></g>
+        <use href="#hero" x="40" y="120" width="150" height="300"/>
+        <rect x="180" y="190" width="40" height="28" fill="#fff" stroke="#15131a" stroke-width="3" transform="rotate(-15 200 204)"/>
+      </svg>
+      <div class="bal" style="left:10px;top:10px;max-width:46%">12 categories. 36 real questions. A citation for each one.</div>
+    </div>
+
+    <div class="panel w2 tall">
+      <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="300" height="400" fill="#0d1226"/>
+        <rect x="40" y="90" width="220" height="150" fill="#f3ecdc" stroke="#15131a" stroke-width="4"/>
+        <g font-family="JetBrains Mono" font-size="16" fill="#15131a"><text x="58" y="130">UX-AITRUTH-</text><text x="58" y="170">★ 0   forks 0</text><text x="58" y="205">issues 0</text></g>
+        <use href="#bust" x="60" y="250" width="180" height="180"/>
+      </svg>
+      <div class="cap" style="left:8px;top:8px">Given away free.</div>
+      <div class="cap" style="left:8px;bottom:8px;background:#fff">For months: nothing.</div>
+    </div>
+
+    <div class="panel w6">
+      <svg viewBox="0 0 720 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="720" height="300" fill="#1d2440"/>
+        <polygon points="300,60 640,60 720,300 220,300" fill="#9fe7ff" opacity=".1"/>
+        <rect x="330" y="50" width="300" height="170" fill="#9fe7ff" stroke="#15131a" stroke-width="5"/>
+        <g font-family="JetBrains Mono" font-size="16" fill="#0e1a24">
+          <text x="350" y="92" font-weight="700">Pull request #1</text>
+          <text x="350" y="124">Add machine-readable</text>
+          <text x="350" y="148">taxonomy (ic3_taxonomy.json)</text>
+          <text x="350" y="190">+144 lines</text>
+        </g>
+        <use href="#bust" x="90" y="110" width="200" height="200"/>
+      </svg>
+      <div class="cap" style="left:8px;top:8px">Then one day:</div>
+      <div class="bal" style="left:8px;bottom:12px;max-width:34%">Somebody read it. Somebody's building on it.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ STORY 4 ============ -->
+<div class="page" id="infrastructure">
+  <div class="title"><h1>XAOTICA</h1><span>Story 4 · "Infrastructure"</span></div>
+  <div class="grid">
+
+    <div class="panel w6">
+      <svg viewBox="0 0 720 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="720" height="300" fill="#0d1226"/>
+        <g fill="#9fe7ff">
+          <circle cx="40" cy="250" r="5"/><circle cx="90" cy="230" r="5"/><circle cx="140" cy="260" r="5"/><circle cx="190" cy="235" r="5"/><circle cx="240" cy="255" r="5"/><circle cx="290" cy="228" r="5"/><circle cx="340" cy="258" r="5"/><circle cx="390" cy="232" r="5"/><circle cx="440" cy="256" r="5"/><circle cx="490" cy="230" r="5"/><circle cx="540" cy="260" r="5"/><circle cx="590" cy="236" r="5"/><circle cx="640" cy="252" r="5"/><circle cx="690" cy="234" r="5"/>
+          <circle cx="65" cy="190" r="3"/><circle cx="165" cy="200" r="3"/><circle cx="265" cy="188" r="3"/><circle cx="365" cy="198" r="3"/><circle cx="465" cy="186" r="3"/><circle cx="565" cy="200" r="3"/><circle cx="665" cy="190" r="3"/>
+          <circle cx="115" cy="150" r="2"/><circle cx="215" cy="160" r="2"/><circle cx="315" cy="148" r="2"/><circle cx="415" cy="158" r="2"/><circle cx="515" cy="146" r="2"/><circle cx="615" cy="156" r="2"/>
+        </g>
+        <text x="360" y="90" text-anchor="middle" font-family="Bangers" font-size="58" fill="#f3ecdc" letter-spacing="3">600,000,000</text>
+      </svg>
+      <div class="cap" style="left:8px;top:8px">Every day, people ask a chatbot: am I being scammed? Am I still eligible?</div>
+    </div>
+
+    <div class="panel w3">
+      <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="400" height="300" fill="#2c3560"/>
+        <rect x="150" y="30" width="230" height="200" fill="#fff" stroke="#15131a" stroke-width="4"/>
+        <g stroke="#15131a" stroke-width="4" fill="none">
+          <rect x="175" y="70" width="60" height="40"/><path d="M235 90 h40"/><rect x="275" y="70" width="80" height="40"/>
+          <path d="M315 110 v40"/><rect x="275" y="150" width="80" height="40"/>
+        </g>
+        <g font-family="Comic Neue" font-weight="700" font-size="13" text-anchor="middle"><text x="205" y="95">Question</text><text x="315" y="95">Chatbot</text><text x="315" y="175">Decision</text></g>
+        <use href="#hero" x="20" y="90" width="120" height="240"/>
+      </svg>
+      <div class="bal" style="left:8px;top:8px;max-width:40%">That makes it infrastructure. And nobody audits it.</div>
+    </div>
+
+    <div class="panel w3">
+      <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="400" height="300" fill="#f3ecdc"/>
+        <rect x="30" y="40" width="150" height="110" fill="#fff" stroke="#15131a" stroke-width="4"/>
+        <rect x="220" y="40" width="150" height="110" fill="#fff" stroke="#15131a" stroke-width="4" transform="rotate(6 295 95)"/>
+        <path d="M180 95 Q200 70 222 95" stroke="#d6453d" stroke-width="5" fill="none"/>
+        <g font-family="Comic Neue" font-weight="700" font-size="14" text-anchor="middle"><text x="105" y="100">Source</text><text x="295" y="100" transform="rotate(6 295 95)">Summary</text></g>
+      </svg>
+      <div class="bal" style="left:8px;bottom:10px;max-width:92%">Summaries drift from the source. And the same company owns the platform and the model that sends people to report fraud. That's a conflict of interest.</div>
+    </div>
+
+    <div class="panel w2 tall">
+      <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="300" height="400" fill="#3a2f2a"/>
+        <rect x="50" y="150" width="200" height="130" fill="#e9dcc0" stroke="#15131a" stroke-width="4"/>
+        <path d="M50 150 L150 220 L250 150" stroke="#15131a" stroke-width="4" fill="none"/>
+        <g font-family="Bangers" font-size="22" fill="#15131a" text-anchor="middle"><text x="150" y="262">COST: $0</text></g>
+      </svg>
+      <div class="cap" style="left:8px;top:8px;max-width:88%">Her research, donated free to CISA and the FBI.</div>
+    </div>
+
+    <div class="panel w4">
+      <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs><radialGradient id="machine" cx="70%" cy="40%" r="70%"><stop offset="0" stop-color="#9fe7ff"/><stop offset=".45" stop-color="#2c3560"/><stop offset="1" stop-color="#0d1226"/></radialGradient></defs>
+        <rect width="600" height="400" fill="url(#machine)"/>
+        <path d="M150 400 L170 380 L60 400Z" fill="#000" opacity=".3"/>
+        <polygon points="190,395 230,395 20,400 0,400" fill="#000" opacity=".4"/>
+        <use href="#hero" x="130" y="150" width="130" height="260"/>
+      </svg>
+      <div class="cap" style="left:8px;top:8px;max-width:70%">Regulators mostly weren't testing for it yet. She asked first:</div>
+      <div class="bal shout" style="right:10px;bottom:14px;max-width:46%">WHO CHECKS THE ANSWER?</div>
+    </div>
+  </div>
+</div>
+
+<p class="note">Drafts. Every event shown is from her published research as summarized in AUTHOR_APPRAISAL.md and SESSION_LOG.md. Dialogue is dramatized. The AI reply in Story 1 paraphrases the documented failure ("sycophantic deadline compliance") and doesn't quote it. The protocol does not say the letter was hers, so the page doesn't either.</p>
+</body>
+</html>
