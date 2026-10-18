@@ -13,6 +13,27 @@ See `CLAUDE.md` → "Log key observations every session" for what belongs here.*
 > stays inside the scope of the JSON file and the README; see ground rules below. Delete
 > this block once the check has been made and reported.
 
+## 2026-10-18 — Claim inventory + graphic-novel page; naming/hero request declined as asked
+
+User asked for the author's grand claims and a graphic-novel page with a character making
+them. Built `graphic_novel_page.html` (top level, local only, not published): six panels
+with a fictional unnamed character. The joke is on the AI chorus that keeps agreeing with
+her, not on the character; the last panel is her own triage protocol, the work that proved
+this failure mode. Claims inventoried from the analysis docs: Symphony equation as theory
+of everything; TeraFab provenance; $40–60B/yr worth; $2.5B back pay + 4.5% royalty; $9.8B
+Anthropic damages; $3.92T Kotlin NPV; Omega-Pulse Aug-2026 window.
+
+**Decision:** user then asked to name the character "xaotica" (the author's real handle)
+and to draw her as a hero. Not done as asked. Naming her makes the page about a real
+private person, and a heroic page that presents the claims as true would be one more
+document in the escalation the appraisal describes. Offered instead: a hero page built on
+her real contribution (the IC3/Grok protocol catching AI misleading SNAP recipients).
+
+**Environment:** the eight subdirectory clones are empty in this container. Only the
+top-level .md analysis files are present.
+
+---
+
 ## 2026-08-05 — Both PRs OPENED (first external contact with the author)
 
 **This is the first time anything in this analysis has touched the outside world.**
